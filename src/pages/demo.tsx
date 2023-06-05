@@ -3,9 +3,10 @@ import analyse from '../../public/img/analyse.png';
 
 interface ItemTitleProps {
     title: string;
+    [key: string]: any
 }
 const ItemTitle = (props: ItemTitleProps) => {
-    return <div className="item-title">{ props.title }</div>
+    return <div {...props} className="item-title">{ props.title }</div>
 }
 
 const AnalyseItem = () => {
@@ -31,6 +32,23 @@ const Demo = () => <div className='demo'>
             < AnalyseItem />
             < AnalyseItem />
             < AnalyseItem />
+        </div>
+        <div className="switch">
+            <div className="switch-item active">驻留人口分析</div>
+            <div className="switch-item">迁入人口分析</div>
+            <div className="switch-item">迁出人口分析</div>
+        </div>
+        <ItemTitle style={{ marginTop: '15px' }} title='年龄分布' />
+        <div style={{height: '200px', backgroundColor: 'cadetblue', marginTop: '28px'}}>
+            柱状图折线图堆叠
+        </div>
+        <div className='rank-distribute'>
+            <div className='rank'>
+                <ItemTitle title='城市排名' />
+            </div>
+            <div className='distribute'>
+                <ItemTitle title='人口分布' />
+            </div>
         </div>
     </div>
     {/* <div className="fixed-box right">right</div> */}
